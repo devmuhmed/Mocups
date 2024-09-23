@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'country_code',
+        'username',
     ];
 
     /**
@@ -42,6 +43,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'country_code' => 'array',
     ];
+
+    public function countries()
+    {
+        return $this->belongsToMany(Country::class);
+    }
 }

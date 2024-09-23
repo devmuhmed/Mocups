@@ -19,10 +19,16 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'username' => $this->username,
-            'country_codes' => $this->country_codes,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'token' => $this->token ?? request()->bearerToken(),
+            'countries' => $this->countries ? $this->countries->map(function ($country) {
+                return [
+                    'id' => $country->id,
+                    'name' => $country->name,
+                    'code' => $country->code,
+                ];
+            }) : null,
         ];
     }
 }

@@ -18,6 +18,8 @@ class RegisterRequest extends FormRequest
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'username' => 'required|string|max:255|unique:users',
+            'countries' => 'required|array|min:1',
+            'countries.*' => 'exists:countries,id',
         ];
     }
 }

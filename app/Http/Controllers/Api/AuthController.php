@@ -21,6 +21,7 @@ class AuthController extends Controller
             'password' => Hash::make($validated['password']),
             'username' => $validated['username'],
         ]);
+        $user->countries()->attach($request->countries);
         $token = $user->createToken('api_auth');
         $user->forceFill(['token' => $token->plainTextToken]);
 
