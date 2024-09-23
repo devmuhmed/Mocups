@@ -16,6 +16,8 @@ class CountriesTableSeeder extends Seeder
         DB::table('countries')->insert([
             ['code' => 'NO', 'name' => 'Norway'],
             ['code' => 'FI', 'name' => 'Finland'],
+            ['code' => 'SE', 'name' => 'Sweden'],
+            ['code' => 'DK', 'name' => 'Denmark'],
         ]);
     }
 }
