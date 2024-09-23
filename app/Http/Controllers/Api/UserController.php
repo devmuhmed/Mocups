@@ -20,6 +20,13 @@ class UserController extends Controller
         $users = User::all();
         return response()->json(['data' => UserResource::collection($users)],200);
     }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        return response()->json(['data' => UserResource::make($user)],200);
+    }
 }
 
 
